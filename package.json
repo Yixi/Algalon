@@ -1,7 +1,10 @@
 {
   "name": "Algalon",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "fuse.js",
+  "scripts": {
+    "dev": "node fuse.js"
+  },
   "repository": "https://github.com/Yixi/Algalon",
   "author": "Yixi <lyh1112@gmail.com>",
   "license": "MIT",

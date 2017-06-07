@@ -1,5 +1,27 @@
-/**
- * Created by yhliu on 07/06/2017.
- */
+import * as _ from 'lodash';
 
-console.log('content script');
+let fakeConfig = [
+    {
+        selector: '.soutu-btn',
+        key: 's',
+        event: 'click'
+    }
+];
+
+const customEvent = (eventName: string, element: Element) => {
+    let event: Event = document.createEvent('HTMLEvents');
+    event.initEvent(eventName, true, true);
+    element.dispatchEvent(event);
+};
+
+
+document.addEventListener('keydown', event => {
+    let char = String.fromCharCode(event.keyCode).toLocaleLowerCase();
+    console.log(char)
+
+    let key = _.find(fakeConfig, {key: char});
+    if (key) {
+        customEvent(key.event, document.querySelector(key.selector));
+    }
+
+}, false);
