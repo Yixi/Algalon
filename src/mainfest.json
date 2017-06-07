@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Algalon",
+  "version": "0.0.1",
+  "description": "Algalon",
+  "icons": {
+    "16": "img/r.png",
+    "48": "img/r.png",
+    "128": "img/r.png"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; style-src * 'unsafe-inline'; img-src 'self' data:;",
+  "web_accessible_resources": [
+    "js/inject.bundle.js"
+  ],
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "<all_urls>"
+  ]
+}
