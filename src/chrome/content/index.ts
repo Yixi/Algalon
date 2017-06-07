@@ -17,8 +17,6 @@ const customEvent = (eventName: string, element: Element) => {
 
 document.addEventListener('keydown', event => {
     let char = String.fromCharCode(event.keyCode).toLocaleLowerCase();
-    console.log(char)
-
     let key = _.find(fakeConfig, {key: char});
     if (key) {
         customEvent(key.event, document.querySelector(key.selector));
